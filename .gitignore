@@ -21,4 +21,7 @@ Vocabulary/ORBvoc.txt
 build/
 *~
 lib/
-
+data/
+Examples/Monocular/mono_tum_live
+bin/
+outputs/
