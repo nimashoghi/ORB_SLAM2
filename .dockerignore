@@ -1,5 +1,7 @@
 data/
+docker/
 **/lib/
 **/bin/
 **/build/
 Vocabulary/ORBvoc.txt
+Thirdparty/

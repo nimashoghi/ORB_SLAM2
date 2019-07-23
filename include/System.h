@@ -21,6 +21,7 @@
 #ifndef SYSTEM_H
 #define SYSTEM_H
 
+#include <memory>
 #include <string>
 #include <thread>
 #include <opencv2/core/core.hpp>
@@ -48,6 +49,9 @@ class LoopClosing;
 class System
 {
 public:
+    static auto parse_vocabulary(const std::string &vocabulary_path) -> std::unique_ptr<ORBVocabulary>;
+
+public:
     // Input sensor
     enum eSensor
     {
@@ -58,7 +62,7 @@ public:
 
 public:
     // Initialize the SLAM system. It launches the Local Mapping, Loop Closing and Viewer threads.
-    System(const string &strVocFile, const string &strSettingsFile, const eSensor sensor, const bool bUseViewer = true);
+    System(ORBVocabulary *vocabulary, const string &strSettingsFile, const eSensor sensor, const bool bUseViewer = true);
 
     // Proccess the given stereo frame. Images must be synchronized and rectified.
     // Input images: RGB (CV_8UC3) or grayscale (CV_8U). RGB is converted to grayscale.
@@ -121,10 +125,12 @@ public:
     std::vector<MapPoint *> GetTrackedMapPoints();
     std::vector<cv::KeyPoint> GetTrackedKeyPointsUn();
 
+    eSensor Sensor() const;
+
+private:
     // Map structure that stores the pointers to all KeyFrames and MapPoints.
     Map *mpMap;
 
-private:
     // Input sensor
     eSensor mSensor;
 

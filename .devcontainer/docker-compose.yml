@@ -1,7 +1,7 @@
 version: "3.1"
 services:
     orb_slam2:
-        image: nimashoghi/slam_build_essentials:xenial-arm64
+        image: nimashoghi/ubuntu-xenial-orb-slam2-runtime-deps:latest
         command: sleep infinity
         cap_add:
             - SYS_PTRACE
