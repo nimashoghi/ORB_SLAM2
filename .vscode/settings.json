@@ -57,6 +57,9 @@
         "set": "cpp",
         "string": "cpp",
         "string_view": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "bit": "cpp",
+        "iterator": "cpp",
+        "random": "cpp"
     }
 }

@@ -1,10 +1,16 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
     "name": "C++",
-    "workspaceFolder": "/workspace",
-    "dockerComposeFile": "docker-compose.yml",
-    "service": "orb_slam2",
-    "shutdownAction": "stopCompose",
-    "postCreateCommand": "chmod +x ./build_pre.sh && ./build_pre.sh",
+    "image": "nimashoghi/ubuntu-xenial-orb-slam2-runtime-deps:latest",
+    "runArgs": [
+        // privileged
+        "--privileged",
+        // host networking
+        "--network",
+        "host",
+        // volume
+        "-v",
+        "/var/run/docker.sock:/var/run/docker.sock"
+    ],
     "extensions": ["ms-vscode.cpptools"]
 }

@@ -49,7 +49,7 @@ class LoopClosing;
 class System
 {
 public:
-    static auto parse_vocabulary(const std::string &vocabulary_path) -> std::unique_ptr<ORBVocabulary>;
+    static std::unique_ptr<ORBVocabulary> parse_vocabulary(const std::string &vocabulary_path);
 
 public:
     // Input sensor

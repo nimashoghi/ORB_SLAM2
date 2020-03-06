@@ -32,7 +32,7 @@ inline std::unique_ptr<T> make_unique(Args &&... args)
     return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
 }
 
-auto System::parse_vocabulary(const std::string &vocabulary_file) -> std::unique_ptr<ORBVocabulary>
+std::unique_ptr<ORBVocabulary> System::parse_vocabulary(const std::string &vocabulary_file)
 {
     //Load ORB Vocabulary
     cout << endl

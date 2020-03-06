@@ -1,6 +1,4 @@
-ARG BASE
-ARG RUNTIME_DEPS_VERSION=latest
-FROM nimashoghi/${BASE}-orb-slam2-runtime-deps:${RUNTIME_DEPS_VERSION}
+FROM nimashoghi/ubuntu-xenial-orb-slam2-runtime-deps:2-13-20
 
 WORKDIR /build/ORB_SLAM2
 COPY . .

@@ -10,7 +10,7 @@
 namespace timer
 {
 template <typename T>
-inline auto time(std::string file_name, T function)
+inline void time(std::string file_name, T function)
 {
     static std::mutex mutex;
     static std::size_t counter = 0;
